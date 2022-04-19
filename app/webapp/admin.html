@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <!-- <button class="yourlink">Download</button>
+     -->
+    <a href="#" class="yourlink">Download</a>
+    <script>
+        $jq('input.downloadAll').click( function( e )
+        {
+            e.preventDefault();
+
+            var temporaryDownloadLink = document.createElement("a");
+            temporaryDownloadLink.style.display = 'none';
+
+            document.body.appendChild( temporaryDownloadLink );
+
+            for( var n = 0; n < filesForDownload.length; n++ )
+            {
+                var download = filesForDownload[n];
+                temporaryDownloadLink.setAttribute( 'href', download.path );
+                temporaryDownloadLink.setAttribute( 'download', download.name );
+
+                temporaryDownloadLink.click();
+            }
+
+            document.body.removeChild( temporaryDownloadLink );
+        } );
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

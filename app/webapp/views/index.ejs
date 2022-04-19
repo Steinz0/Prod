@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football AI Game</title>
+    <link rel="stylesheet" href="public/css/index.css">
+</head>
+<body>
+  
+  <div class="navbar">
+    <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="https://github.com/Steinz0/FootballGame-ML/blob/main/Rules.md">Rules</a></li>
+        <li><a href="https://github.com/Steinz0/FootBallGame-Apprentissage">Documentation</a></li>
+    </ul>
+
+    <form action="/logout?_method=DELETE" method="POST">
+      <button type="submit" class="buttonLog"><span></span>Log Out</button>
+    </form>
+  </div>
+  
+  
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  
+  <div class="score">
+    <div class="redScore">Red Team</div>
+    <div class="blueScore">Blue Team</div>
+    <span id="redTeamScore"></span>
+    <span id="blueTeamScore"></span>
+  </div>
+
+
+  <div class="mid" id="mid">
+    <div class="mid-left">
+      <div class="files-forms">
+        <div id='contain-table' style= "height: 120px; width: 260px; overflow:auto;">
+          <table id="table" border="1">
+          </table>
+        </div>
+        <div class="file-choose">
+          <div class="file-selected">File selected :</div>
+          <div id="fname"></div>
+        </div>
+        <div class="button-file-forms">
+          <button class="delete-button">Delete</button>
+          <button class="file-button-show">Show</button>
+        </div>
+      </div>
+
+      <div class="manages-AI-forms">
+        <div class="team-selection">
+          <div class="blue-AI">
+            <label for="blue-AI">Blue Team</label>
+                <select id="blue-choose-AI" class="blue-choose-AI">
+                  <option value="static">Static</option>
+                </select>
+            </div>
+          <div class="red-AI">
+          <label for="red-AI">Red Team</label>
+              <select id="red-choose-AI" class="red-choose-AI">
+                <option value="static">Static</option>
+              </select>
+          </div>
+        </div>
+        <div class="buttons-manage-AI">
+          <button id='button-train-ai' class="button-train-ai" onclick="console.log('TRAIN AI')" disabled>TRAIN YOUR AI</button>
+          <button class="manage-AI-button">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mid-center" id="mid-center">
+      <div class="manage">
+        <div class="slidecontainer">
+          <input type="range"
+              min="0" max="2000" step=1 class="slider" value=0 id="myRange" disabled="true">
+        </div>
+
+        <div class="button-manage">
+          <button id='bnew-game' class="bnew-game" onclick="window.location.href='./create'">NEW GAME</button>
+          <div class="container">
+            <i class="fas fa-play"></i>
+          </div>
+          <button id='breplay' class="breplay">PLAY</button>
+
+          <button id='button-important-snapshot' class="button-important-snapshot">IMPORTANT SNAPSHOT</button>
+        </div>
+      </div>
+    </div>
+   
+    <div class="mid-right">
+      <div class='form-order' id='form-order'>
+        <div class='forms' id="forms">
+          <button class="close" id="close" onclick="document.getElementById('form-order').style.visibility = 'hidden'">X</button>
+          <div class="infos-title">Infos Player</div>
+          <ul>
+            <li id="name">Name</li>
+            <li id="Team">Team</li>
+            <li id="x">X</li>
+            <li id="y">Y</li>
+          </ul>
+            <hr class="line">
+            <div class="choose-order">
+            <label for="choose" class="label-choose">Order</label>
+            <select id="choose" class="choose">
+              <option value="runAdvGoal">Courir - Cages adverses</option>
+              <option value="runTeamGoal">Courir - Cages équipe</option>
+              <option value="runBall">Courir - Vers la balle</option>
+              <option value="runAway">Courir - Se démarquer</option>
+
+              <option value="defendGoal">Défendre - Ligne de but</option>
+              <option value="markBallHolder">Défendre - Porteur du ballon</option>
+              <option value="markNearestBall">Défendre - Marquage du joueur libre</option>
+
+              <option value="shootAdvGoal">Tirer - Cages adverses</option>
+              <option value="passNearest">Tirer - Passe au plus proche</option>
+              <option value="passFarthest">Tirer - Passe au plus lointain</option>
+              <option value="crossGoal">Tirer - Centre devant les buts</option>
+              <option value="clearBall">Tirer - Dégage la balle</option>
+
+              <option value="dribbleAdvGoal">Dribbler - Cages adverses</option>
+              <option value="dribbleTeammate">Dribbler - Coéquipier proche</option>
+              <option value="dribbleAway">Dribbler - Loin des adversaires</option>
+            </select>
+            <button class="submit-button">Send Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <script src="dist/pixi-legacy.min.js"></script>
+  <script src="dist/axios.min.js"></script>
+  <script type='module' src="/public/js/game.js"></script>
+  <script type='module' src="/public/js/classes.js"></script>
+</body>
+</html>

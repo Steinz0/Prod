@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "celery-node": "^0.5.9",
+    "connect-sqlite3": "^0.9.13",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "express-zip": "^3.0.0",
+    "method-override": "^3.0.0",
+    "nedb": "^1.8.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "sqlite3": "^5.0.3"
+  }
+}
